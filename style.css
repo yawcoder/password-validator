@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Pacifico&family=Poppins&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(#00c2cb, #fff);
+}
+
+.container{
+    background: #fff;
+    padding: 1.5em;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px 10px rgba(0,0,0,0.4);
+}
+
+h2{
+    margin: 0 0 1em 0;
+    font-family: 'poppins', sans-serif;
+    color: #cb0900;
+}
+
+input{
+    padding: 1.3em 0.5em;
+    font-size: 1em;
+    height: 1em;
+    width: 80%;
+    border: 1px solid rgba(0,0,0,0.4);
+    outline: none;
+    border-radius: 10px;
+}
+
+.fa-eye{
+    color: gray;
+    cursor: pointer;
+}
+
+.length{
+    margin: 0.7em 1em;
+}
+
+#check1, #check2, #check3, #check4{
+    margin: 0 1em;
+    color: red;
+}
