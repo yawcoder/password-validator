@@ -38,7 +38,7 @@ input.addEventListener('input', () => {
         checkFalse(check3);
     }
 
-    if(!input.value.match(" ")){
+    if(!input.value.match(" ") && input.value !== ""){
         checkTrue(check4);
     }else{
         checkFalse(check4);

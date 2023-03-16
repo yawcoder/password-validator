@@ -148,4 +148,11 @@ We move to the final one which is rather simple. It says that my password should
 
 Here we go. if exclamation mark, input.value.match space. then I will bring the functions.
 
-I will enter a password........So you can see when it checks true because there is no space. the moment i enter a space, it checks false. When i remove the entire password, it remains true even though the input field is empty
+I will enter a password........So you can see when it checks true because there is no space. the moment i enter a space, it checks false. When i remove the entire password, it remains true even though the input field is empty. We can fix this by adding another conditional statement right here
+
+And input.value exclamation == empty. So now the statements reads if the password does not contain space and input field is not empty, then run the function below.
+
+I will enter a password once more so it checks true and then remove it.......it goes back to being false.
+
+
+If you are still with me until this point make then sure smash the like button, subscribe to the channel if you haven't done so already. Thank you for staying with me until the end, I will see in another video.
