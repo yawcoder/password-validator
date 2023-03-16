@@ -1,0 +1,151 @@
+So you have probably seen this on some websites asking that your password should be in a specific format, like it should contain a symbol or at least one number and should be more than a certain number of characters.
+
+Well in this video I will teach you how you can build a password validator with JavaScript.
+
+On my screen here I have a sample page which has all the features of a good password validator. I will input some text so I can demonstrate it.
+
+When I need to see what I have typed I just have to click this eye icon here and it reveals my password. If I click it again it goes back to being a password.
+
+I also have a counter over here which shows me the number of characters in my password. You can see it updates as I input my password.
+
+Next I have 4 requirements that my password must meet. You can see that with my current password, it satifies only 2 of the requirements. The length is more than 5 and it does not contain any spaces.
+
+I will add a number to meet the second requirement and it immediately turns purple and the times symbol before it turns to a check symbol indicating that my password meets that requirement.
+
+If I delete the number, it turns back to red and the symbol turns back to a times.
+
+In order to save some time, I have already written the CSS of this project so I will take you through the HTML and JavaScript code only.
+
+Before we start make sure to subscribe and hit the bell icon so you don't miss any new video uploads.
+
+Input an exclamation mark and press tab to generate the HTML boilerplate code. The title of my project is Password validator.
+
+Next I need to add the link to fontawesome CDN because that is where I will be importing the eye icon, the times and the check icons. I have the link in this text file so I will just copy and paste it here.
+
+Next I will link my CSS and JavaScript files. Now unto the body tag.
+
+First, I will create a div with class container. This div will contain all our other elements. A heading h2 with content "Password Validator".
+
+Next is an input tag with id password. Type of input should be password and I will give it a placeholder, Enter Password.
+
+Beside the input box should be the eye icon so here is the font-awesome tag for that. i tag with classes far and fa-eye. You can see the eye icon has appeared.
+
+Next is the counter. A div with class length. Within it I type Length with a column then I will create a span with id count. Within it I will input 0.
+
+Next stop are the requirements. I will create a div with class check1. In it will be the fontawesome tag for the times icon. i tag with classes far and fa-times-circle. Then I will create a span with text, Length should be more than 5.
+
+I will now copy and paste 3 times and just edit them. This should be check2 then the span content should be "should contain at least one numerical character."
+
+Next one should be check 3 then the span content is "Should contain at least one special character."
+
+And then lastly check4 with span content, "Should not contain space".
+
+So by default, the icons requirements indicate that they have not being met. They are red in color and the icon shows times.
+
+That means we will JavaScript to change them to purple and the icons to check indicating that they have met.
+
+This brings us to the end of the HTML, lets move on to JavaScript.
+
+
+
+
+
+
+
+The first thing I need to do in my JavaScript file is to select all the html elements I will be manipulating.
+
+First is the input field with id password, the eye-icon, the span with id count which will give me the length of my password, and then the four requirements with id's check1, check2, check3 and check4.
+
+So const input equals document dot getElementById, bracket open password. This selects my input field. I will copy and paste this 6 times.
+
+Next is the eye icon which does not have an id so I will just go back to my HTML and give an id eye. That means eye comes here.
+
+Next is my count element which give me the lenght of ny password. It has an id count.
+
+The rest are for my four checks, check1 2 3 and 4. Their IDs are check1, check2, check3, check4.
+
+I am done selecting all the elements I need.
+
+Next I will target the eye icon. I need it to change the password to plain text when it is clicked. That means I will add an event listener.
+
+eye dot addEventListener, bracket opens. The event I am looking for is a click and then an arrow function comes in.
+
+This statement only means that any time a user clicks the eye icon, this function should execute. So I am now about to define the function.
+
+I want the password in the input field to change to plain text when it is clicked so I will target the input for that. By default, input type is set to password so I will tell JavaScript that if the input type is set to password, change it to text. I will use an if statement for that.
+
+If bracket opens, input.type === password. Then, input dot type equals text. Lets see if its working. I will input a password then click the eye icon. So it works.
+
+But when click it again, it does not change back to a password. I can fix that by adding an else statement.
+
+Else then curly braces, input.type equals password. Now when I click it, you can see it can now toggle between text and password.
+
+You see the color of the eye icon is gray, I can make change to black when it is clicked, then changed back to gray when clicked again.
+
+Under the input dot type I will just put, eye.style.color equals black. Then for the else statement it should be eye.style.color equals gray.
+
+Now you can see when I click the icon, it changes to black and at the same time, the password changes to plain text. They also changeback to their original forms when I clicked again. Perfect.
+
+Next element to target is my counter. For that I will add an event listener to my input field.
+
+So input.addEventListener, brackets. input then an arrow function. This line simply means anytime a user enters something in the input field, this function should execute. I am about to define the function.
+
+Input.value. This statement returns whatever password the user entered into the input field. I will add a dot trim() function to remove any white spaces.
+
+In case the user entered some spaces before or after the password, the trim() function will remove it. To return the number of characters entered, i will just add dot length.
+
+To make it appear, I will just assign it to count dot innerText. Lets see if its working. So its working. The count element updates with every input I make.
+
+Now lets move on to four requirements. The first one says password should be more than 5 characters. That means if I enter more than 5 characters, I want the times icon to change to check and the color changed to purple.
+
+I will just say, if count dot innerText is more than 5. then curly brackets open. I will target check1 which is the first checklist. Now in the index.html file, the times icon is the first child of the check1 element as you can see here.
+
+That means to target the icon, I will say firstElementChild. Next I need tom target the class list of the icon so dot classList. Now in order to change the times to check, I just need to replace this class fa-times-circle with fa-check-circle.
+
+So I will say dot remove, bracket opens fa-times-circle. To replace it, I will repeat this line, change remove to add then instead of this, I will change it to fa-check-circle.
+
+Lets see if its workingggggg....... Yeah so when I enter more than 5 character, you can see that the icon changes to a check. But when I remove the password, the check icon remains but I need it to change back to a times icon.
+
+That means I need to add an else statement. Else then curly braces.....the else statement is just the opposite of this so I will just copy and paste this 2 lines, change this to check and this to times.
+
+I also need the line to change to purple when it checks true. With tha I will come below this and say, check1 dot style dot color equals purple.
+
+And when it checks false, it should change back to red so check1 dot style dot color equals red.
+
+When I enter more than 5 characters, the icon changes to check and the color changes to purple. The opposite happens when i remove my password.
+
+Now we will be repeating this commands for the rest of our checklists so to make things simple, I will convert this to a function.
+
+I will create a function name it checkTrue, which will take a single parameter, check. I will just cut this statement and paste it here.
+
+I will create another function, name it checkFalse which takes a single parameter, check. I will cut the else statement and paste it here.
+
+I will also remove the 1 here to make it general. That means the function will work for all the other checklist. Over here I will call the function checkTrue. It will take check1 as an argument and for the else statement, I will call the checkFalse function and input check2 as an argument.
+
+Now we move on to the second checklist, which is, the password should contain at least one numeric character. I need this to check true when there is at least one number in my password.
+
+For that I will type, if input.value.match bracket opens slash square brackets 0-9 slash again then i. This here is what we call regular expression or regex.
+
+This statement means if any of the characters in the input dot value element matches any number from 0-9. The i here makes it case-insenstive.
+
+I will open curly braces and then call my checkTrue function, it will take check2 as an argument. The else statement will also call the checkFalse function and take check2 as an argument.
+
+I will enter a number in my input field and as you can see the second checklist is also working. if I remove the password, it goes back to default.
+
+Next we move to the third checklist which is, should contain at least one special character. That is a symbols like # * colon and the others.
+
+This is also going to use the same match fucntion as the previous but its a little tricky so pay attention.
+
+if input.value.match bracket opens slash, open square brackets, caret symbol, capital A to capital Z small a to z 0-9 and then space, slash again then i.
+
+So this caret symbol means negative or missing. That means with this line, we are telling JavaScript to return any character that is not an alphabet upper and lowercase, a number 0 to 9 or a space.
+
+That means any character that is not any of what I have defined in this line is automatically a special character or a symbol. Let me append my functions and try to see of its working.
+
+So u you see, the moment I enter a question mark, the third requirement checks true. If remove it, it checks false. So it checks true because a question mark is neither an alphabet nor a number.
+
+We move to the final one which is rather simple. It says that my password should not contain a space.
+
+Here we go. if exclamation mark, input.value.match space. then I will bring the functions.
+
+I will enter a password........So you can see when it checks true because there is no space. the moment i enter a space, it checks false. When i remove the entire password, it remains true even though the input field is empty

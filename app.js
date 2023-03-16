@@ -1,6 +1,6 @@
 const input = document.getElementById('input');
-const eye = document.querySelector('.fa-eye')
-const countEl = document.getElementById('count');
+const eye = document.getElementById('eye');
+const count = document.getElementById('count');
 const check1 = document.getElementById('check1');
 const check2 = document.getElementById('check2');
 const check3 = document.getElementById('check3');
@@ -8,7 +8,7 @@ const check4 = document.getElementById('check4');
 
 
 eye.addEventListener('click', () => {
-    if(input.type == 'password'){
+    if(input.type === 'password'){
         input.type = 'text';
         eye.style.color = 'black';
     }else{
@@ -18,9 +18,9 @@ eye.addEventListener('click', () => {
 })
 
 input.addEventListener('input', () => {
-    countEl.innerText = input.value.trim().length;
+    count.innerText = input.value.trim().length;
 
-    if(countEl.innerText > 5){
+    if(count.innerText > 5){
         checkTrue(check1);
     }else{
         checkFalse(check1);
@@ -32,13 +32,13 @@ input.addEventListener('input', () => {
         checkFalse(check2);
     }
 
-    if(input.value.match(/[^A-Za-z0-9-' ']/i)){
+    if(input.value.match(/[^A-Za-z0-9' ']/i)){
         checkTrue(check3);
     }else{
         checkFalse(check3);
     }
 
-    if(!input.value.match(" ") && input.value !== ""){
+    if(!input.value.match(" ")){
         checkTrue(check4);
     }else{
         checkFalse(check4);
@@ -46,13 +46,13 @@ input.addEventListener('input', () => {
 })
 
 function checkTrue(check){
-    check.style.color = 'purple';
     check.firstElementChild.classList.remove('fa-times-circle');
     check.firstElementChild.classList.add('fa-check-circle');
+    check.style.color = 'purple';
 }
 
 function checkFalse(check){
-    check.style.color = 'red';
     check.firstElementChild.classList.remove('fa-check-circle');
     check.firstElementChild.classList.add('fa-times-circle');
+    check.style.color = 'red';
 }
